@@ -1,12 +1,5 @@
-import { Text, View, StyleSheet } from "react-native";
-
-export default function Index() {
-  return (
-    <View style={styles.container}>
-      <Text>Edit src/app/index.tsx to edit this screen.</Text>
-    </View>
-  );
-}
+import { useState } from "react";
+import { Text, View, StyleSheet, Button, Alert, Switch, ScrollView } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
@@ -15,3 +8,33 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
+
+export default function Index() {
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
+  const pressMe = () => {
+    Alert.alert("Button Clicked!")
+  }
+  
+  return (
+    <View style={styles.container}>      
+      <Button
+      title="Click Me"
+      onPress={pressMe}
+      />
+      <Switch
+      value={isEnabled} 
+      onValueChange={toggleSwitch}
+      />
+    </View>
+    
+    // <ScrollView style={styles.container}>
+    //     {
+    //         [...Array(40)].map((_, i) => (
+    //             <Text>Hello from Home Screen {i+1} 🔥/</Text>
+    //         ))
+    //     }
+    // </ScrollView>
+  );
+}
