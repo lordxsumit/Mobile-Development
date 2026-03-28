@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Text, View, StyleSheet, Button, Alert, Switch, ScrollView } from "react-native";
+import { View, StyleSheet, Button, Alert, Switch } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
@@ -28,7 +28,7 @@ export default function Index() {
       onValueChange={toggleSwitch}
       />
     </View>
-    
+
     // <ScrollView style={styles.container}>
     //     {
     //         [...Array(40)].map((_, i) => (
